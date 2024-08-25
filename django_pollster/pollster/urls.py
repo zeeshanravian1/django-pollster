@@ -16,9 +16,10 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 from django.urls.resolvers import URLResolver
 
 urlpatterns: list[URLResolver] = [
+    path(route="polls/", view=include("polls.urls")),
     path(route="admin/", view=admin.site.urls),
 ]
