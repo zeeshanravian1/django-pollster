@@ -48,7 +48,11 @@ class Question(models.Model):
 
         """
 
-        return self.pub_date >= timezone.now() - timedelta(days=1)
+        return (
+            timezone.now() - timedelta(days=1)
+            <= self.pub_date
+            <= timezone.now()
+        )
 
 
 class Choice(models.Model):

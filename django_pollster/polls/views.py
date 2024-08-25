@@ -10,84 +10,90 @@ from django.db.models import F, QuerySet
 from django.http import HttpRequest, HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
+from django.utils import timezone
+from django.views import generic
 
 from .models import Choice, Question
 
 
-def index(request: HttpRequest) -> HttpResponse:
+class IndexView(generic.ListView):
     """
     Index View
 
     Description:
-        - This method is the index view for the polls app.
+        - This class is the index view for the polls app.
 
-    Args:
-        - `request (HttpRequest):` The request object.
-
-    Returns:
-        - `response (HttpResponse):` The response object.
+    Attributes:
+        - `template_name (str):` The template name.
+        - `context_object_name (str):` The context object name.
 
     """
 
-    latest_question_list: QuerySet[Question] = (  # type: ignore
-        Question.objects.order_by("-pub_date")[:5]  # pylint: disable=no-member
-    )
-    context: dict[str, QuerySet[Question]] = {  # type: ignore
-        "latest_question_list": latest_question_list,
-    }
-    return render(
-        request=request, template_name="polls/index.html", context=context
-    )
+    template_name = "polls/index.html"
+    context_object_name = "latest_question_list"
+
+    def get_queryset(self) -> QuerySet[Question]:  # type: ignore
+        """
+        Get Queryset Method
+
+        Description:
+            - This method returns the last five published questions.
+
+        Args:
+            - `None`
+
+        Returns:
+            - `queryset (QuerySet):` The queryset object.
+
+        """
+
+        return Question.objects.filter(  # pylint: disable=no-member
+            pub_date__lte=timezone.now()
+        ).order_by("-pub_date")[:5]
 
 
-def detail(request: HttpRequest, question_id) -> HttpResponse:
+class DetailView(generic.DetailView):
     """
     Detail View
 
     Description:
-        - This method is the detail view for the polls app.
+        - This class is the detail view for the polls app.
 
-    Args:
-        - `request (HttpRequest):` The request object.
-        - `question_id (int):` The question id.
-
-    Returns:
-        - `response (HttpResponse):` The response object.
+    Attributes:
+        - `model (Question):` The model.
+        - `template_name (str):` The template name.
 
     """
 
-    question: Question = get_object_or_404(klass=Question, pk=question_id)
+    model = Question
+    template_name = "polls/detail.html"
 
-    return render(
-        request=request,
-        template_name="polls/detail.html",
-        context={"question": question},
-    )
+    def get_queryset(self):
+        """
+        Excludes any questions that aren't published yet.
+
+        """
+
+        return Question.objects.filter(  # pylint: disable=no-member
+            pub_date__lte=timezone.now()
+        )
 
 
-def results(request: HttpRequest, question_id) -> HttpResponse:
+class ResultsView(generic.DetailView):
     """
     Results View
 
     Description:
-        - This method is the results view for the polls app.
+        - This class is the results view for the polls app.
 
-    Args:
-        - `request (HttpRequest):` The request object.
-        - `question_id (int):` The question id.
-
-    Returns:
-        - `response (HttpResponse):` The response object.
+    Attributes:
+        - `model (Question):` The model.
+        - `template_name (str):` The template name.
 
     """
 
-    question: Question = get_object_or_404(Question, pk=question_id)
-
-    return render(
-        request=request,
-        template_name="polls/results.html",
-        context={"question": question},
-    )
+    model = Question
+    template_name = "polls/results.html"
 
 
 def vote(request: HttpRequest, question_id) -> HttpResponse:
