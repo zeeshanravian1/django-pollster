@@ -8,6 +8,7 @@ Description:
 
 from datetime import timedelta
 
+from django.contrib import admin
 from django.db import models
 from django.utils import timezone
 
@@ -53,6 +54,11 @@ class Question(models.Model):
         verbose_name="date published"
     )
 
+    @admin.display(
+        boolean=True,
+        ordering="pub_date",
+        description="Published recently?",
+    )
     def __str__(self) -> str:  # pylint: disable=invalid-str-returned
         return self.question_text
 

@@ -66,10 +66,10 @@ MIDDLEWARE: list[str] = [
 
 ROOT_URLCONF: str = "pollster.urls"
 
-TEMPLATES: list[dict[str, str | list[str] | bool | dict[str, list[str]]]] = [
+TEMPLATES: list[dict[str, str | list[Path] | bool | dict[str, list[str]]]] = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
