@@ -22,7 +22,8 @@ from django.urls import include, path
 from django.urls.resolvers import URLResolver
 
 urlpatterns: list[URLResolver] = [
-    path(route="polls/", view=include("polls.urls")),
+    # path(route="polls/", view=include("polls.urls")),
+    path(route="polls/", view=include("django_polls.urls")),
     path(route="admin/", view=admin.site.urls),
 ]
 
