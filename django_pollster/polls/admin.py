@@ -2,7 +2,7 @@
 Polls Admin Module
 
 Description:
-    - This module contains the admin configuration for the Polls app
+    - This module contains the admin configuration for the polls app
 
 """
 

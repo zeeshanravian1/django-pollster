@@ -2,7 +2,7 @@
 Polls Models Module
 
 Description:
-    - This module contains the models for the Polls app
+    - This module contains the models for the polls app
 
 """
 
@@ -20,8 +20,31 @@ class Question(models.Model):
         - This class represents a question object in the database.
 
     Attributes:
-        - `question_text (CharField):` The text of the question.
-        - `pub_date (DateTimeField):` The date the question was published.
+        - `question_text (CharField)`: The text of the question.
+        - `pub_date (DateTimeField)`: The date the question was published.
+
+    Methods:
+        - `__str__(self) -> str`:
+            - Description:
+                - This method returns the string representation of the question
+                object.
+
+            - Args:
+                - `None`
+
+            - Returns:
+                - `str`: The string representation of the question object.
+
+        - `was_published_recently(self) -> bool`:
+            - Description:
+                - This method checks if the question was published recently.
+
+            - Args:
+                - `None`
+
+            - Returns:
+                - `bool`: True if the question was published within the last
+                day.
 
     """
 
@@ -44,7 +67,7 @@ class Question(models.Model):
             - `None`
 
         Returns:
-            - `bool:` True if the question was published within the last day.
+            - `bool`: True if the question was published within the last day.
 
         """
 
@@ -63,9 +86,21 @@ class Choice(models.Model):
         - This class represents a choice object in the database.
 
     Attributes:
-        - `question (ForeignKey):` The question the choice is associated with.
-        - `choice_text (CharField):` The text of the choice.
-        - `votes (IntegerField):` The number of votes the choice has.
+        - `question (ForeignKey)`: The question the choice is associated with.
+        - `choice_text (CharField)`: The text of the choice.
+        - `votes (IntegerField)`: The number of votes the choice has.
+
+    Methods:
+        - `__str__(self) -> str`:
+            - Description:
+                - This method returns the string representation of the choice
+                object.
+
+            - Args:
+                - `None`
+
+            - Returns:
+                - `str`: The string representation of the choice object.
 
     """
 

@@ -2,6 +2,6 @@
 Polls Package
 
 Description:
-    - This package contains the Polls app.
+    - This package contains the polls app.
 
 """

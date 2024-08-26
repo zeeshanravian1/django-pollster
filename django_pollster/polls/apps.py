@@ -2,7 +2,7 @@
 Polls Apps Module
 
 Description:
-    - This module contains the configuration for the Polls app
+    - This module contains the configuration for the polls app
 
 """
 
@@ -14,11 +14,14 @@ class PollsConfig(AppConfig):
     Polls Configuration Class
 
     Description:
-        - This class contains the configuration for the Polls app.
+        - This class contains the configuration for the polls app.
 
     Attributes:
-        - `default_auto_field (str):` The default auto field for the app.
-        - `name (str):` The name of the app.
+        - `default_auto_field (str)`: The default auto field for the app.
+        - `name (str)`: The name of the app.
+
+    Methods:
+        - `None`
 
     """
 

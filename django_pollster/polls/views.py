@@ -24,8 +24,19 @@ class IndexView(generic.ListView):
         - This class is the index view for the polls app.
 
     Attributes:
-        - `template_name (str):` The template name.
-        - `context_object_name (str):` The context object name.
+        - `template_name (str)`: The template name.
+        - `context_object_name (str)`: The context object name.
+
+    Methods:
+        - `get_queryset(self) -> QuerySet[Question]`:
+            - Description:
+                - This method returns the last five published questions.
+
+            - Args:
+                - `None`
+
+            - Returns:
+                - `queryset (QuerySet)`: The queryset object.
 
     """
 
@@ -43,7 +54,7 @@ class IndexView(generic.ListView):
             - `None`
 
         Returns:
-            - `queryset (QuerySet):` The queryset object.
+            - `queryset (QuerySet)`: The queryset object.
 
         """
 
@@ -60,15 +71,26 @@ class DetailView(generic.DetailView):
         - This class is the detail view for the polls app.
 
     Attributes:
-        - `model (Question):` The model.
-        - `template_name (str):` The template name.
+        - `model (Question)`: The model.
+        - `template_name (str)`: The template name.
+
+    Methods:
+        - `get_queryset(self) -> QuerySet[Question]`:
+            - Description:
+                - This method excludes any questions that aren't published yet.
+
+            - Args:
+                - `None`
+
+            - Returns:
+                - `queryset (QuerySet)`: The queryset object
 
     """
 
     model = Question
     template_name = "polls/detail.html"
 
-    def get_queryset(self):
+    def get_queryset(self) -> QuerySet[Question]:  # type: ignore
         """
         Excludes any questions that aren't published yet.
 
@@ -87,8 +109,11 @@ class ResultsView(generic.DetailView):
         - This class is the results view for the polls app.
 
     Attributes:
-        - `model (Question):` The model.
-        - `template_name (str):` The template name.
+        - `model (Question)`: The model.
+        - `template_name (str)`: The template name.
+
+    Methods:
+        - `None`
 
     """
 
@@ -104,11 +129,11 @@ def vote(request: HttpRequest, question_id) -> HttpResponse:
         - This method is the vote view for the polls app.
 
     Args:
-        - `request (HttpRequest):` The request object.
-        - `question_id (int):` The question id.
+        - `request (HttpRequest)`: The request object.  **(Required)**
+        - `question_id (int)`: The question id.  **(Required)**
 
     Returns:
-        - `response (HttpResponse):` The response object.
+        - `response (HttpResponse)`: The response object.
 
     """
 
