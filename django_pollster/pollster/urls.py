@@ -15,6 +15,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+from debug_toolbar.toolbar import debug_toolbar_urls  # type: ignore
+from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
 from django.urls.resolvers import URLResolver
@@ -23,3 +25,9 @@ urlpatterns: list[URLResolver] = [
     path(route="polls/", view=include("polls.urls")),
     path(route="admin/", view=admin.site.urls),
 ]
+
+
+if not settings.TESTING:
+    urlpatterns = [
+        *urlpatterns,
+    ] + debug_toolbar_urls()

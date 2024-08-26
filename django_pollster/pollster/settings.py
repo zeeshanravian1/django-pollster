@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
+import sys
 from pathlib import Path
 
 from environ import Env  # type: ignore
@@ -159,3 +160,19 @@ STATIC_URL: str = "static/"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD: str = "django.db.models.BigAutoField"
+
+
+# Debug Toolbar
+INTERNAL_IPS: list[str] = ["127.0.0.1", "localhost"]
+
+TESTING: bool = "test" in sys.argv
+
+if not TESTING:
+    INSTALLED_APPS = [
+        *INSTALLED_APPS,
+        "debug_toolbar",
+    ]
+    MIDDLEWARE = [
+        "debug_toolbar.middleware.DebugToolbarMiddleware",
+        *MIDDLEWARE,
+    ]
