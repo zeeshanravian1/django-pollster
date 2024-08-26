@@ -2,7 +2,7 @@
 Polls Apps Module
 
 Description:
-    - This module contains the configuration for the polls app
+    - This module contains the configuration for the polls app.
 
 """
 

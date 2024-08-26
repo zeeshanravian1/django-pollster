@@ -83,7 +83,7 @@ class DetailView(generic.DetailView):
                 - `None`
 
             - Returns:
-                - `queryset (QuerySet)`: The queryset object
+                - `queryset (QuerySet)`: The queryset object.
 
     """
 

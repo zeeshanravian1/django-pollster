@@ -2,7 +2,7 @@
 Polls Tests Module
 
 Description:
-    - This module contains the test cases for the polls app
+    - This module contains the test cases for the polls app.
 
 """
 
@@ -21,7 +21,7 @@ class QuestionModelTests(TestCase):
     Question Model Test Cases
 
     Description:
-        - This class contains the test cases for the Question model
+        - This class contains the test cases for the Question model.
 
     Attributes:
         - `None`
@@ -135,7 +135,7 @@ class QuestionIndexViewTests(TestCase):
     Question Index View Test Cases
 
     Description:
-        - This class contains the test cases for the Question Index View
+        - This class contains the test cases for the Question Index View.
 
     Attributes:
         - `None`
@@ -298,7 +298,7 @@ class QuestionDetailViewTests(TestCase):
     Question Detail View Test Cases
 
     Description:
-        - This class contains the test cases for the Question Detail View
+        - This class contains the test cases for the Question Detail View.
 
     Attributes:
         - `None`

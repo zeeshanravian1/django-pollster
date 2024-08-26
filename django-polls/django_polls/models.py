@@ -2,7 +2,7 @@
 Polls Models Module
 
 Description:
-    - This module contains the models for the polls app
+    - This module contains the models for the polls app.
 
 """
 

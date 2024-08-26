@@ -47,6 +47,7 @@ ALLOWED_HOSTS: list[str] = env.list(
 
 INSTALLED_APPS: list[str] = [
     # "polls.apps.PollsConfig",
+    "pollster",
     "django_polls.apps.PollsConfig",
     "django.contrib.admin",
     "django.contrib.auth",
