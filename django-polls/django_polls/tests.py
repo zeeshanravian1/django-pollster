@@ -27,44 +27,9 @@ class QuestionModelTests(TestCase):
         - `None`
 
     Methods:
-        - `test_was_published_recently_with_future_question(self) -> None`:
-            - Description:
-                - This method tests the was_published_recently method of the
-                Question model.
-                - It tests if the method returns False for questions whose
-                pub_date is in the future.
-
-            - Args:
-                - `None`
-
-            - Returns:
-                - `None`
-
-        - `test_was_published_recently_with_old_question(self) -> None`:
-            - Description:
-                - This method tests the was_published_recently method of the
-                Question model.
-                - It tests if the method returns False for questions whose
-                pub_date is older than 1 day.
-
-            - Args:
-                - `None`
-
-            - Returns:
-                - `None`
-
-        - `test_was_published_recently_with_recent_question(self) -> None`:
-            - Description:
-                - This method tests the was_published_recently method of the
-                Question model.
-                - It tests if the method returns True for questions whose
-                pub_date is within the last day.
-
-            - Args:
-                - `None`
-
-            - Returns:
-                - `None`
+        - `test_was_published_recently_with_future_question(self) -> None`
+        - `test_was_published_recently_with_old_question(self) -> None`
+        - `test_was_published_recently_with_recent_question(self) -> None`
 
     """
 
@@ -141,60 +106,11 @@ class QuestionIndexViewTests(TestCase):
         - `None`
 
     Methods:
-        - `test_no_questions(self) -> None`:
-            - Description:
-                - This method tests if an appropriate message is displayed
-                when no questions exist.
-
-            - Args:
-                - `None`
-
-            - Returns:
-                - `None`
-
-        - `test_past_question(self) -> None`:
-            - Description:
-                - This method tests if questions with a pub_date in the past
-                are displayed on the index page.
-
-            - Args:
-                - `None`
-
-            - Returns:
-                - `None`
-
-        - `test_future_question(self) -> None`:
-            - Description:
-                - This method tests if questions with a pub_date in the future
-                aren't displayed on the index page.
-
-            - Args:
-                - `None`
-
-            - Returns:
-                - `None`
-
-        - `test_future_question_and_past_question(self) -> None`:
-            - Description:
-                - This method tests if only past questions are displayed even
-                if both past and future questions exist.
-
-            - Args:
-                - `None`
-
-            - Returns:
-                - `None`
-
-        - `test_two_past_questions(self) -> None`:
-            - Description:
-                - This method tests if the questions index page may display
-                multiple questions.
-
-            - Args:
-                - `None`
-
-            - Returns:
-                - `None`
+        - `test_no_questions(self) -> None`
+        - `test_past_question(self) -> None`
+        - `test_future_question(self) -> None`
+        - `test_future_question_and_past_question(self) -> None`
+        - `test_two_past_questions(self) -> None`
 
     """
 
@@ -304,27 +220,8 @@ class QuestionDetailViewTests(TestCase):
         - `None`
 
     Methods:
-        - `test_future_question(self) -> None`:
-            - Description:
-                - This method tests if the detail view of a question with a
-                pub_date in the future returns a 404 not found.
-
-            - Args:
-                - `None`
-
-            - Returns:
-                - `None`
-
-        - `test_past_question(self) -> None`:
-            - Description:
-                - This method tests if the detail view of a question with a
-                pub_date in the past displays the question's text.
-
-            - Args:
-                - `None`
-
-            - Returns:
-                - `None`
+        - `test_future_question(self) -> None`
+        - `test_past_question(self) -> None`
 
     """
 

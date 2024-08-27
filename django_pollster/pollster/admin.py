@@ -82,47 +82,13 @@ class RoleAdmin(GroupAdmin):
         - `None`
 
     Methods:
-        - `changelist_view(self, request, extra_context=None) -> HttpResponse`:
-            - Description:
-                - This method is used to render the change list view for the
-                Role model.
-
-            - Args:
-                - `request (HttpRequest)`: The request object.  **(Required)**
-                - `extra_context (dict[str, str])`: Extra context to pass to
-                the template. **(Optional)**
-
-            - Returns:
-                - `HttpResponse`: The response object.
-
-        - `changeform_view(self, request, object_id=None, form_url='',
-        extra_context=None) -> HttpResponse`:
-            - Description:
-                - This method is used to render the change form view for the
-                Role model.
-
-            - Args:
-                - `request (HttpRequest)`: The request object.  **(Required)**
-                - `object_id (str)`: The id of the object to change.
-                **(Optional)**
-                - `form_url (str)`: The form URL. **(Optional)**
-                - `extra_context (dict[str, bool])`: Extra context to pass to
-                the template. **(Optional)**
-
-            - Returns:
-                - `HttpResponse`: The response object.
-
-        - `get_form(self, request, obj=None, **kwargs)`:
-            - Description:
-                - This method is used to get the form for the Role model.
-
-            - Args:
-                - `request (HttpRequest)`: The request object.  **(Required)**
-                - `obj (Role)`: The Role object. **(Optional)**
-                - `**kwargs`: Additional keyword arguments. **(Optional)**
-
-            - Returns:
-                - `RoleForm (ModelForm)`: The Role form.
+        - `changelist_view(self, request: HttpRequest, extra_context: dict[str,
+        str] | None = None) -> HttpResponse`
+        - `changeform_view(self, request: HttpRequest, object_id: str | None =
+        None, form_url: str = "", extra_context: dict[str, bool] | None = None)
+        -> HttpResponse`
+        - `get_form(self, request: HttpRequest, obj: Any | None = None, change:
+        bool = False, **kwargs: Any) -> type[ModelForm]`
 
     """
 

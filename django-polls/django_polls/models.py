@@ -25,27 +25,8 @@ class Question(models.Model):
         - `pub_date (DateTimeField)`: The date the question was published.
 
     Methods:
-        - `__str__(self) -> str`:
-            - Description:
-                - This method returns the string representation of the question
-                object.
-
-            - Args:
-                - `None`
-
-            - Returns:
-                - `str`: The string representation of the question object.
-
-        - `was_published_recently(self) -> bool`:
-            - Description:
-                - This method checks if the question was published recently.
-
-            - Args:
-                - `None`
-
-            - Returns:
-                - `bool`: True if the question was published within the last
-                day.
+        - `__str__(self) -> str`
+        - `was_published_recently(self) -> bool`
 
     """
 
@@ -97,16 +78,7 @@ class Choice(models.Model):
         - `votes (IntegerField)`: The number of votes the choice has.
 
     Methods:
-        - `__str__(self) -> str`:
-            - Description:
-                - This method returns the string representation of the choice
-                object.
-
-            - Args:
-                - `None`
-
-            - Returns:
-                - `str`: The string representation of the choice object.
+        - `__str__(self) -> str`
 
     """
 

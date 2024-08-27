@@ -28,15 +28,7 @@ class IndexView(generic.ListView):
         - `context_object_name (str)`: The context object name.
 
     Methods:
-        - `get_queryset(self) -> QuerySet[Question]`:
-            - Description:
-                - This method returns the last five published questions.
-
-            - Args:
-                - `None`
-
-            - Returns:
-                - `queryset (QuerySet)`: The queryset object.
+        - `get_queryset(self) -> QuerySet[Question]`
 
     """
 
@@ -75,15 +67,7 @@ class DetailView(generic.DetailView):
         - `template_name (str)`: The template name.
 
     Methods:
-        - `get_queryset(self) -> QuerySet[Question]`:
-            - Description:
-                - This method excludes any questions that aren't published yet.
-
-            - Args:
-                - `None`
-
-            - Returns:
-                - `queryset (QuerySet)`: The queryset object.
+        - `get_queryset(self) -> QuerySet[Question]`
 
     """
 
